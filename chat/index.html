@@ -788,6 +788,23 @@
       font-size: 15px !important;
       line-height: 1.6 !important;
     }
+  
+    /* ===== 2026-10-20: MOBILE SUDHAAR (vedsaas.vedkuber.in) — page tedha/zoom/kat-ta tha ===== */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    @supports (height: 100dvh) { .container { height: 100dvh; } }      /* 100vh mobile address-bar se lamba ho jaata tha */
+    .auth-box { width: min(360px, calc(100vw - 32px)); }               /* 360px chhote phone se bahar nikalta tha */
+    .row .card { min-width: min(220px, 100%) !important; }
+    .message-row .msg-body pre, .message-row .msg-body table { max-width: 100%; overflow-x: auto; }
+    .message-row .msg-body img { max-width: 100%; height: auto; }
+    @media (max-width: 900px) {
+      .composer textarea { font-size: 16px; }                          /* <16px par iPhone tap karte hi zoom karta tha */
+      .chat-area { padding: 14px 12px; }
+      .message-row { max-width: 94%; }
+      .msg-label { max-width: 100%; }
+      .topbar { padding: 12px 14px; }
+      .composer-wrap { padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); }
+      .auth-box { padding: 20px; }
+    }
   </style>
 </head>
 

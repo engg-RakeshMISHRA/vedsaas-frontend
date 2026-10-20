@@ -1,4 +1,7 @@
-
 name = "vedsaas-frontend"
 compatibility_date = "2024-09-23"
-pages_build_output_dir = "."
+
+# Cloudflare Workers static assets (2026-10-20): poora repo hi site hai, build step nahi.
+# Kya upload nahi hota, wo .assetsignore me hai (node_modules, scripts, android, logs...).
+[assets]
+directory = "."

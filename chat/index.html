@@ -805,6 +805,21 @@
       .composer-wrap { padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); }
       .auth-box { padding: 20px; }
     }
+  
+    /* 2026-10-20: mobile ☰ — pehle sidebar mobile par chhupa tha, purani baatcheet tak koi raasta nahi tha */
+    .menu-btn { display: none; }
+    .sidebar-scrim { display: none; }
+    @media (max-width: 900px) {
+      .menu-btn { display: inline-flex; align-items: center; justify-content: center; position: absolute; left: 10px;
+                  top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 10px;
+                  border: 1px solid #4a4a60; background: #2f2f42; color: #fff; font-size: 20px; cursor: pointer; }
+      .sidebar { display: flex !important; position: fixed; top: 0; bottom: 0; left: 0; width: min(300px, 85vw);
+                 min-width: 0; z-index: 70; transform: translateX(-105%); transition: transform .2s ease;
+                 padding-top: calc(18px + env(safe-area-inset-top, 0px)); }
+      .sidebar.open { transform: none; box-shadow: 0 0 40px rgba(0,0,0,.6); }
+      .sidebar-scrim.show { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 65; }
+    }
+    @media (prefers-reduced-motion: reduce) { .sidebar { transition: none; } }
   </style>
 </head>
 
@@ -836,9 +851,11 @@
       </div>
     </div>
 
+    <div id="sidebar-scrim" class="sidebar-scrim"></div>
     <div class="main">
       <div class="rail">
         <div class="topbar">
+          <button id="menu-btn" class="menu-btn" type="button" aria-label="Chat history">&#9776;</button>
           <h1 id="brand-title">VedSAAS <span>AI Assistant</span></h1>
           <div class="top-controls">
             <div class="meta offline" id="meta-info">Offline</div>
@@ -1098,12 +1115,19 @@
 
     /* Utils */
     function banner(msg) { const b = document.getElementById('banner'); b.textContent = msg; b.style.display = 'block'; setTimeout(() => b.style.display = 'none', 2500); }
+    /* 2026-10-20: har browser ki pakki pehchaan — pehle sab 'web' the (ek user ki yaad doosre ko dikh sakti thi) */
+    const VED_UID = (() => {
+      const mk = () => 'w_' + ((window.crypto && crypto.randomUUID) ? crypto.randomUUID().replace(/-/g, '').slice(0, 16)
+                                                                  : Math.random().toString(36).slice(2, 18));
+      try { let u = localStorage.getItem('ved_uid'); if (!u) { u = mk(); localStorage.setItem('ved_uid', u); } return u; }
+      catch { return mk(); }
+    })();
     async function authFetch(path, opts = {}, { timeoutMs = 10000 } = {}) {
       const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), timeoutMs);
       const url = api(path);
       const res = await fetch(url, {
         ...opts, signal: ctrl.signal, credentials: 'include',
-        headers: { 'Content-Type': 'application/json', ...(opts.headers || {}), ...(token ? { 'Authorization': 'Bearer ' + token } : {}) }
+        headers: { 'Content-Type': 'application/json', 'X-User-Id': VED_UID, ...(opts.headers || {}), ...(token ? { 'Authorization': 'Bearer ' + token } : {}) }
       });
       clearTimeout(t);
       if (!res.ok) {
@@ -1463,7 +1487,7 @@
 
         // VedLLM (Ollama default)
         try {
-          const reply1 = await tryOnce('/api/vedllm/ask', { q: text, user: 'web' });
+          const reply1 = await tryOnce('/api/vedllm/ask', { q: text, user: VED_UID });
           if (reply1) {
             hideTyping();
             typeWriteBot(reply1);
@@ -1480,7 +1504,7 @@
           attempts++;
           await new Promise(r => setTimeout(r, 600));
           try {
-            const reply2 = await tryOnce('/api/engine1/ask', { q: text, user: 'web' });
+            const reply2 = await tryOnce('/api/engine1/ask', { q: text, user: VED_UID });
             if (reply2) {
               hideTyping();
               typeWriteBot(reply2);
@@ -1495,7 +1519,13 @@
 
         // All failed
         hideTyping();
-        const genericError = 'Something went wrong. Please try again.';
+        // 2026-10-20: saaf wajah — server band / bahut der / baaki
+        const _em = String((lastErr && (lastErr.message || lastErr)) || '');
+        const genericError = /abort/i.test(_em)
+          ? 'This is taking too long — VedSAAS is busy right now. Please ask again in a minute.'
+          : (/HTTP 50[234]|Failed to fetch|NetworkError|Load failed/i.test(_em) || !navigator.onLine)
+            ? 'VedSAAS is offline right now (server not reachable). Please try again in a little while.'
+            : 'Something went wrong. Please try again.';
         banner(genericError);
         typeWriteBot(genericError);
         serverOnline = false;
@@ -1505,6 +1535,19 @@
         updateSendState();
       }
     }
+
+
+    /* 2026-10-20: mobile ☰ sidebar */
+    (function () {
+      const sb = document.querySelector('.sidebar'), scrim = document.getElementById('sidebar-scrim'),
+            btn = document.getElementById('menu-btn');
+      if (!sb || !scrim || !btn) return;
+      const close = () => { sb.classList.remove('open'); scrim.classList.remove('show'); };
+      btn.addEventListener('click', () => { const o = !sb.classList.contains('open'); sb.classList.toggle('open', o); scrim.classList.toggle('show', o); });
+      scrim.addEventListener('click', close);
+      document.getElementById('history-list')?.addEventListener('click', e => { if (e.target.closest('div,li,button,a')) close(); });
+      document.getElementById('new-topic')?.addEventListener('click', close);
+    })();
 
     /* Scroll pill */
     const chatArea = document.getElementById('chat-area'); const toBottom = document.getElementById('to-bottom');

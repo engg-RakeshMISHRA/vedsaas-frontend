@@ -1,0 +1,19 @@
+{
+    "name": "vedsaas-frontend",
+    "version": "1.0.0",
+    "description": "VedSAAS Frontend",
+    "scripts": {
+        "build": "echo 'No build step required, serving static files'",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "cap": "cap"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@capacitor/android": "^5.7.8",
+        "@capacitor/core": "^5.7.8"
+    },
+    "devDependencies": {
+        "@capacitor/cli": "^5.7.8"
+    }
+}

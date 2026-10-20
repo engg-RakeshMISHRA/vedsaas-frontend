@@ -1,0 +1,47 @@
+<!-- Navigation Bar -->
+<nav
+    style="position:sticky;top:0;z-index:1000;background:var(--bg-primary);border-bottom:1px solid var(--border-subtle);padding:12px 16px;backdrop-filter:blur(10px)">
+    <div
+        style="max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <!-- Logo -->
+        <a href="/" id="nav-logo"
+            style="display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text-primary);flex-shrink:0">
+            <img src="/public/image/logopic.png" alt="VedSAAS" style="height:28px">
+            <span style="font-weight:800;font-size:1.1rem">VedSAAS</span>
+        </a>
+
+        <!-- Quick Links -->
+        <div
+            style="display:flex;gap:16px;align-items:center;overflow-x:auto;padding-bottom:4px; -ms-overflow-style: none; scrollbar-width: none;">
+            <a href="/subdomains/docs/docs.html" data-t="nav_docs"
+                style="color:var(--text-secondary);text-decoration:none;font-size:0.9rem;white-space:nowrap">Docs</a>
+            <a href="/subdomains/api/api.html" data-t="nav_api"
+                style="color:var(--text-secondary);text-decoration:none;font-size:0.9rem;white-space:nowrap">API</a>
+            <a href="/subdomains/help/help.html" data-t="nav_help"
+                style="color:var(--text-secondary);text-decoration:none;font-size:0.9rem;white-space:nowrap">Help</a>
+            <a href="/subdomains/status/status.html" data-t="nav_status"
+                style="color:var(--text-secondary);text-decoration:none;font-size:0.9rem;white-space:nowrap">Status</a>
+            <a href="/index.html#notes"
+                style="color:var(--text-secondary);text-decoration:none;font-size:0.9rem;white-space:nowrap">Notes</a>
+            <a href="/investor.html" data-t="nav_investors"
+                style="color:var(--accent-cyan);text-decoration:none;font-size:0.9rem;white-space:nowrap;font-weight:600">💰
+                Investors</a>
+
+            <!-- English Override Button (Hidden by default, shown if auto-translated) -->
+            <button id="en-override-btn" onclick="window.switchToEnglish()"
+                style="display:none;background:rgba(255,255,255,0.1);color:var(--text-primary);border:1px solid var(--border-subtle);border-radius:6px;padding:6px 12px;font-size:0.85rem;cursor:pointer;font-weight:600">
+                View in English 🇬🇧
+            </button>
+
+            <!-- Install Button -->
+            <button id="install-btn"
+                style="display:none;padding:6px 12px;background:var(--accent-purple);color:#fff;border:none;border-radius:6px;font-weight:600;font-size:0.85rem;cursor:pointer;white-space:nowrap;margin-right:4px">
+                Install
+            </button>
+
+            <!-- App Button -->
+            <a href="/chat/index.html" data-t="nav_app"
+                style="padding:6px 16px;background:var(--accent-cyan);color:#000;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.9rem;white-space:nowrap">App</a>
+        </div>
+    </div>
+</nav>

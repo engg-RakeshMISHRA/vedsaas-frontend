@@ -1,0 +1,14 @@
+{
+    "appId": "io.vedsaas.app",
+    "appName": "VedSAAS",
+    "webDir": "www",
+    "bundledWebRuntime": false,
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 0
+        }
+    },
+    "android": {
+        "path": "android"
+    }
+}

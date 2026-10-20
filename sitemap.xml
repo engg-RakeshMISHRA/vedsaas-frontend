@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <!-- Main Pages -->
     <url>
-        <loc>https://vedsaas.com/</loc>
+        <loc>https://vedsaas.vedkuber.in/</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/investor.html</loc>
+        <loc>https://vedsaas.vedkuber.in/investor.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/about.html</loc>
+        <loc>https://vedsaas.vedkuber.in/about.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/case-studies.html</loc>
+        <loc>https://vedsaas.vedkuber.in/case-studies.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/blog/index.html</loc>
+        <loc>https://vedsaas.vedkuber.in/blog/index.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -38,14 +38,14 @@
     
     <!-- Legal Pages -->
     <url>
-        <loc>https://vedsaas.com/privacy.html</loc>
+        <loc>https://vedsaas.vedkuber.in/privacy.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/terms.html</loc>
+        <loc>https://vedsaas.vedkuber.in/terms.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
@@ -53,14 +53,14 @@
     
     <!-- Authentication -->
     <url>
-        <loc>https://vedsaas.com/login.html</loc>
+        <loc>https://vedsaas.vedkuber.in/login.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/register.html</loc>
+        <loc>https://vedsaas.vedkuber.in/register.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -68,7 +68,7 @@
     
     <!-- Chat Interface -->
     <url>
-        <loc>https://vedsaas.com/chat/</loc>
+        <loc>https://vedsaas.vedkuber.in/chat/</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -76,35 +76,35 @@
     
     <!-- Subdomains -->
     <url>
-        <loc>https://vedsaas.com/subdomains/docs/docs.html</loc>
+        <loc>https://vedsaas.vedkuber.in/subdomains/docs/docs.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/subdomains/api/api.html</loc>
+        <loc>https://vedsaas.vedkuber.in/subdomains/api/api.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/subdomains/help/help.html</loc>
+        <loc>https://vedsaas.vedkuber.in/subdomains/help/help.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/subdomains/careers/careers.html</loc>
+        <loc>https://vedsaas.vedkuber.in/subdomains/careers/careers.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     
     <url>
-        <loc>https://vedsaas.com/subdomains/wiki/wiki.html</loc>
+        <loc>https://vedsaas.vedkuber.in/subdomains/wiki/wiki.html</loc>
         <lastmod>2026-02-03</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

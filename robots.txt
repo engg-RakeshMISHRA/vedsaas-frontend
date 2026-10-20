@@ -13,4 +13,4 @@ Allow: /subdomains/api/
 Allow: /subdomains/help/
 
 # Sitemap
-Sitemap: https://vedsaas.com/sitemap.xml
+Sitemap: https://vedsaas.vedkuber.in/sitemap.xml

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Meta -->
-  <meta name="ved-api-base" content="https://api.vedsaas.com" />
+  <meta name="ved-api-base" content="" />
   <meta name="robots" content="noindex, nofollow">
 
   <style>
@@ -265,7 +265,8 @@
       const origin = location.origin || '';
       if (metaBase) window.API_BASE = metaBase.replace(/\/$/, '');
       else if (h.endsWith('vedsaas.com')) window.API_BASE = (h === 'api.vedsaas.com') ? origin : 'https://api.vedsaas.com';
-      else window.API_BASE = 'http://127.0.0.1:8010'; // Fallback
+      else if (/^https?:$/.test(location.protocol) && !['localhost', '127.0.0.1'].includes(h)) window.API_BASE = origin; // 2026-10-20: vedsaas.vedkuber.in — Worker /api ko backend tak le jaata hai
+      else window.API_BASE = 'http://127.0.0.1:8010'; // Fallback (local)
     })();
 
     // Auth Check

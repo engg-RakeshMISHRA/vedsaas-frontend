@@ -20,3 +20,4 @@ Dockerfile*
 env.production.template
 visitor_logs.json
 frontend@1.0.0
+worker.js
